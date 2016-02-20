@@ -7,4 +7,6 @@ Information available on facepunch thread: http://facepunch.com/showthread.php?t
 
 Zombie Survival Support added by Larry Lizard
 
+Currently working on:
+
 Also lets you add extra Voting Power to different groups, supports ULX created groups
