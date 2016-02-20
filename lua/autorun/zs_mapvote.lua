@@ -11,21 +11,13 @@ MapVote.Config = {}
 
 function MapVote.HasExtraVotePower(ply)
 	-- Example that gives admins more voting power
-	if ply:IsAdmin() then
+	if	player:IsUserGroup("admin") then
 		return true
 	end
 
 	return false
 end
 
-
-MapVote.CurrentMaps = {}
-MapVote.Votes = {}
-
-MapVote.Allow = false
-
-MapVote.UPDATE_VOTE = 1
-MapVote.UPDATE_WIN = 3
 
 hook.Add( "LoadNextMap", "MapVote", function()
 MapVote.Start(settings.Length, settings.AllowCurrent, settings.Limit, settings.Prefix)
