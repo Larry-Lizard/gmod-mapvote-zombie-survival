@@ -2,7 +2,7 @@ local settings = {
 	Length = 24, -- Vote lasts 24 seconds
 	AllowCurrent = false, -- Don't allow current map to be re-voted
 	Limit = 8, -- Only allow the choice of 8 maps
-	Prefix = {"zs_", "ze_"}, -- Only allow maps beginning with ttt_ and cs_italy
+	Prefix = {"zs_", "ze_"}, -- Only allow maps beginning with zs and ze
 }
 
 -- ZS Hook by Larry Lizard / www.steamcommunity.com/id/LarryLizard
