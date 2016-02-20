@@ -1,0 +1,10 @@
+"AddonInfo"
+{
+	"name"			"MapVote (ZS Repack)"
+	"version"		"1.0"
+	"up_date"		""
+	"author_name"	"Willox & Dizla | ZS Repack by Larry Lizard"
+	"author_email"	"me@willox.tv"
+	"author_url"	"http://www.steamcommunity.com/id/deltabread"
+	"info"			"http://resonance-gaming.co.uk/"
+}
