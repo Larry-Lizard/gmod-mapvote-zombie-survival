@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 MapVote = {}
 MapVote.Config = {}
 
@@ -18,6 +19,16 @@ function MapVote.HasExtraVotePower(ply)
 	return false
 end
 
+=======
+local settings = {
+	Length = 24, -- Vote lasts 24 seconds
+	AllowCurrent = false, -- Don't allow current map to be re-voted
+	Limit = 8, -- Only allow the choice of 8 maps
+	Prefix = {"zs_", "ze_"}, -- Only allow maps beginning with zs and ze
+}
+
+-- ZS Hook by Larry Lizard / www.steamcommunity.com/id/LarryLizard
+>>>>>>> parent of 310f153... Added Extra voting Power, supports ULX Groups
 
 hook.Add( "LoadNextMap", "MapVote", function()
 MapVote.Start(settings.Length, settings.AllowCurrent, settings.Limit, settings.Prefix)
