@@ -1,23 +1,11 @@
-MapVote = {}
-MapVote.Config = {}
+local settings = {
+	Length = 24, -- Vote lasts 24 seconds
+	AllowCurrent = true, -- Don't allow current map to be re-voted
+	Limit = 8, -- Only allow the choice of 8 maps
+	Prefix = {"zs_", "ze_"}, -- Only allow maps beginning with ttt_ and cs_italy
+}
 
--- CONFIG (sort of)
-    MapVote.Config = {
-        MapLimit = 24,
-        TimeLimit = 28,
-        AllowCurrentMap = false,
-    }
--- CONFIG
-
-function MapVote.HasExtraVotePower(ply)
-	-- Example that gives admins more voting power
-	if	player:IsUserGroup("admin") then
-		return true
-	end
-
-	return false
-end
-
+-- ZS Hook by Larry Lizard / www.steamcommunity.com/id/LarryLizard
 
 hook.Add( "LoadNextMap", "MapVote", function()
 MapVote.Start(settings.Length, settings.AllowCurrent, settings.Limit, settings.Prefix)
