@@ -1,30 +1,36 @@
--- Config
-local settings = {
-	Length = 24, -- Vote lasts 24 seconds
-	AllowCurrent = false, -- Don't allow current map to be re-voted
-	Limit = 8, -- Only allow the choice of 8 maps
-	Prefix = {"zs_", "ze_"}, -- Only allow maps beginning with zs and ze
-}
+MapVote = {}
+MapVote.Config = {}
 
--- Config for extra voting Power
--- To enable, delete the "--[[" and the "]]"	
---[[
+-- CONFIG (sort of)
+    MapVote.Config = {
+        MapLimit = 24,
+        TimeLimit = 28,
+        AllowCurrentMap = false,
+    }
+-- CONFIG
+
 function MapVote.HasExtraVotePower(ply)
-	
-	
-	if player:IsUserGroup("admin") then --Works with ULX User groups aswell. Specify group in the brackets
+	-- Example that gives admins more voting power
+	if ply:IsAdmin() then
 		return true
 	end
 
 	return false
 end
-]]
+
+
+MapVote.CurrentMaps = {}
+MapVote.Votes = {}
+
+MapVote.Allow = false
+
+MapVote.UPDATE_VOTE = 1
+MapVote.UPDATE_WIN = 3
 
 hook.Add( "LoadNextMap", "MapVote", function()
 MapVote.Start(settings.Length, settings.AllowCurrent, settings.Limit, settings.Prefix)
 return true 
 end )
-
 
 if SERVER then
     AddCSLuaFile()
@@ -34,3 +40,4 @@ if SERVER then
 else
     include("mapvote/cl_mapvote.lua")
 end
+
