@@ -1,3 +1,4 @@
+-- Config
 local settings = {
 	Length = 24, -- Vote lasts 24 seconds
 	AllowCurrent = false, -- Don't allow current map to be re-voted
@@ -5,12 +6,36 @@ local settings = {
 	Prefix = {"zs_", "ze_"}, -- Only allow maps beginning with zs and ze
 }
 
--- ZS Hook by Larry Lizard / www.steamcommunity.com/id/LarryLizard
+-- Config for extra voting Power
+-- To enable, delete the "--[[" and the "]]"	
+--[[
+function MapVote.HasExtraVotePower(ply)
+	
+	
+	if player:IsUserGroup("admin") then --Works with ULX User groups aswell. Specify group in the brackets
+		return true
+	end
+
+	return false
+end
+
+
+
+MapVote.CurrentMaps = {}
+MapVote.Votes = {}
+
+MapVote.Allow = false
+
+MapVote.UPDATE_VOTE = 1
+MapVote.UPDATE_WIN = 3
+
+]]
 
 hook.Add( "LoadNextMap", "MapVote", function()
 MapVote.Start(settings.Length, settings.AllowCurrent, settings.Limit, settings.Prefix)
 return true 
 end )
+
 
 if SERVER then
     AddCSLuaFile()
